@@ -140,7 +140,7 @@ except:
     print(f'using : python {__file__} <filename> ')
     quit()
 wttrace = f"""
-__file__ = {file}
+__file__ = '{file}'
 import builtins
 import threading
 import reprlib
