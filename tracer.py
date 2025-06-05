@@ -139,7 +139,17 @@ except:
     __file__ = __file__.split('\\')[-1]
     print(f'using : python {__file__} <filename> ')
     quit()
-wttrace = f'\nimport builtins\nimport threading\nimport reprlib\nimport sys\n{scp}\ntracer = A()\ntracer.start()\n{tfile}\ntracer.stop()\n'
+wttrace = f"""
+__file__ = {file}
+import builtins
+import threading
+import reprlib
+import sys
+{scp}
+tracer = A()
+tracer.start()
+{tfile}
+tracer.stop()"""
 totrace = f'tracer-{file}'
 with open(totrace, 'w', encoding='utf8') as au:
     au.write(wttrace)
